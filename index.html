@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
   <title>Quizard</title>
-  <link rel="icon" type="image/png" href="img/logo.png"/>
+  <link rel="icon" type="image/png" href="img/logo.png" />
 </head>
 
-<body >
+<body>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -25,42 +25,40 @@
         <div class="navbar-nav">
           <a class="nav-link active" onclick="home()" aria-current="page" href="#">Home</a>
           <a class="nav-link" id="navMusicToggle" onclick="toggleMusic()" href="#">Music</a>
-          
-          
         </div>
       </div>
     </div>
   </nav>
 
-<div id="start-cart" class="card-container">
-  <div class="card mb-3 startCard" >
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img class="startCardImg" src="img/skateboard.png" class="img-fluid rounded-start" alt="...">
-      </div>
-      <div class="col-md-8 startCardCenter">
-        <div class="card-body textMid">
-          <h5 class="card-title">Quizard - The QuizApp</h5>
-          <p class="card-text">This is an QuizApp simple QuizApp with funny Questions, I hope you enjoy!.</p>
-          <button  onclick="init()" type="button" class="btn btn-primary mt-5">Start Game</button>
-          
-          <div class="mt-5">
-            <button id="toggle-music" onclick="toggleMusic()" type="button" class="btn btn-dark">Music</button>
-            
+  <div id="start-cart" class="card-container">
+    <div class="card mb-3 startCard">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img class="startCardImg" src="img/skateboard.png" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8 startCardCenter">
+          <div class="card-body textMid">
+            <h5 class="card-title">Quizard - The QuizApp</h5>
+            <p class="card-text">This is an QuizApp simple QuizApp with funny Questions, I hope you enjoy!.</p>
+            <button onclick="init()" type="button" class="btn btn-primary mt-5">Start Game</button>
+
+            <div class="mt-5">
+              <button id="toggle-music" onclick="toggleMusic()" type="button" class="btn btn-dark">Music</button>
+
+            </div>
+
           </div>
-        
         </div>
       </div>
     </div>
   </div>
-</div>
- 
+
 
 
   <div class="card-container" id="endCart" style="display: none;">
 
     <div class="">
-      <img src="img/tropy.png" class="img-fluid rounded-start tropyImg" alt="...">
+      <img src="img/tropy.png" class="handy-dnone img-fluid rounded-start tropyImg" alt="...">
     </div>
     <div class="card tropyImg " style="max-width: 540px;">
       <div class="row g-0 textMid">
@@ -94,7 +92,8 @@
     <div class="card quiz-card">
       <img id="question-img" src="img/skateboard.png" class="card-img-top card-img-cover">
       <div class="progress">
-        <div id="progressbar" class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+        <div id="progressbar" class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 0%;"
+          aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
       </div>
       <div class="card-body">
         <h5 class="card-title" id="questionText">
@@ -103,7 +102,7 @@
           </div>
         </h5>
 
-
+        <div id="disable-btn" class="disable-buttons d-none"></div>
         <div class="card hover-answer-card mb-2" onclick="answer('answer_1')">
           <div class="card-body" id="answer_1">
             <div class="spinner-grow text-secondary" role="status">

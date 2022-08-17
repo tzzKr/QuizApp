@@ -9,6 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    position: relative;
 }
 .question-footer {
     display: flex;
@@ -83,4 +84,22 @@ body {
 }
 .navbar-brand {
     cursor: default;
+
+}
+.disable-buttons {
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0);
+    width: 450px;
+    height: 260px;
+    position: absolute;
+}
+
+@media (max-width: 800px) {
+
+    .startCardImg {
+        display: none;
+    }
+    .handy-dnone {
+        display: none;
+    }
 }

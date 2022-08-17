@@ -58,7 +58,7 @@ let AUDIO_FAIL = new Audio('sound/Wrong.mp3');
 let AUDIO_GAMEMUSIC = new Audio('sound/GameMusic.mp3');
 let AUDIO_ENDGAME = new Audio('sound/endGame.mp3');
 let isPlaying = false;
-
+let alreadyAnswed = false;
 
 function init() {
     document.getElementById('max-questions').innerHTML = questions.length; //generiert die zahl die unten angezeigt wird für die existenten Fragen
@@ -117,6 +117,8 @@ function answer(selection) { //sorgt für die antwort Richtig/Falsch
     } else {
         wrongAnswer(idRightAnswer, selection)
     }
+    alreadyAnswed = true;
+    disableBtn()
     document.getElementById('next-btn').disabled = false; //Macht einen disabled btn wieder enabled
 }
 function rightAnswer(selection) {
@@ -124,6 +126,7 @@ function rightAnswer(selection) {
     rightAnswers++;
     AUDIO_SUCCESS.volume = 0.5;
     AUDIO_SUCCESS.play();
+    
 }
 
 function wrongAnswer(idRightAnswer, selection) {
@@ -131,7 +134,18 @@ function wrongAnswer(idRightAnswer, selection) {
     document.getElementById(idRightAnswer).parentNode.classList.add('bg-success'); //class bg-success wird in das übergeordnete element bei der richtigen antwort hinzugefügt
     AUDIO_FAIL.volume = 0.5;
     AUDIO_FAIL.play();
+    
 }
+
+function disableBtn() {
+if (alreadyAnswed) {
+    document.getElementById('disable-btn').classList.remove('d-none');
+} else {
+    document.getElementById('disable-btn').classList.add('d-none');
+
+}
+}
+
 
 function rightAnswerSelected(selectedQuestionNumber, question) {
     return selectedQuestionNumber == question['right_answer'];
@@ -141,7 +155,9 @@ function nextQuestion() {
     currentQuestion++;  // wert wird erhöht  
     document.getElementById('next-btn').disabled = true; //Macht einen disabled btn wieder disabled
     document.getElementById('currentQuestion').innerHTML = currentQuestion + 1; //erhöht den wert der aktuellen frage
-    resetAnswerBtns() // ruft funktion auf
+    alreadyAnswed = false;
+    disableBtn();
+    resetAnswerBtns(); // ruft funktion auf
     showQuestion();     // Nächste frage wird generiert 
     AUDIO_ENDGAME.volume = 0.5;
     AUDIO_ENDGAME.play();
